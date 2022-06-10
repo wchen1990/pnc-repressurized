@@ -190,8 +190,8 @@ public class ModRenderTypes extends RenderType {
         return BLOCK_HILIGHT_LINE.apply(disableDepthTest, disableWriteMask);
     }
 
-    public static final RenderType TRIANGLE_FAN = create("triangle_fan",
-            DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.TRIANGLE_FAN, 256,
+    public static final RenderType TRIANGLES = create("triangle",
+            DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.TRIANGLES, 256,
             false, false,
             RenderType.CompositeState.builder()
                     .setLineState(new LineStateShard(OptionalDouble.of(2.0)))

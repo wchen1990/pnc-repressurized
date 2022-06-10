@@ -24,6 +24,9 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.parchmentmc.librarian.forgegradle'
 apply plugin: "com.jfrog.artifactory"
 
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
 //adds the build number to the end of the version string if on a build server
 String build_number = System.getenv().BUILD_NUMBER
 if (build_number == null) {
@@ -144,6 +147,9 @@ dependencies {
 //    compileOnly "net.industrial-craft:industrialcraft-2:2.8.27-ex112:api"
 //    compileOnly "thaumcraft:Thaumcraft:${thaumcraft_version}"
 //    compileOnly "team.chisel.ctm:CTM:${ctm_version}:api"
+
+//	runtimeOnly fg.deobf("curse.maven:rubidium-574856:3749094");
+//	runtimeOnly fg.deobf("curse.maven:oculus-581495:3821406");
 }
 
 minecraft {
@@ -210,6 +216,7 @@ classes.configure {
 
 javadoc {
 	source = [sourceSets.main.allJava, sourceSets.api.allJava]
+	options.encoding = "UTF-8"
 	// prevent java 8's strict doclint for javadocs from failing builds
 	options.addStringOption('Xdoclint:none', '-quiet')
 	(options as StandardJavadocDocletOptions)
